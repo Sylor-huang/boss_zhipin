@@ -1,73 +1,3 @@
-# #!/usr/bin/env python
-# # -*- coding: utf-8 -*-
-# # @Time    : 2017/6/5 下午9:13
-# # @Author  : Sylor_Huang
-# # @File    : boss.py
-# # @Software: PyCharm
-# import time
-# from selenium import webdriver
-# from selenium.webdriver.common.by import By
-# from selenium.webdriver.support.ui import WebDriverWait
-# from selenium.webdriver.support import expected_conditions as EC
-# from bs4 import BeautifulSoup
-# browser = webdriver.Chrome()
-# wait = WebDriverWait(browser, 10)
-#
-# def search():
-#     try:
-#         browser.get('http://www.zhipin.com/?sid=sem_pz_bdpc_index')
-#         input = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "#main > div.home-box > div.home-main > div.search-box > div.search-form > form > div.search-form-con > p > input")))
-#         submit = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#main > div.home-box > div.home-main > div.search-box > div.search-form > form > button")))
-#         input.send_keys('python')
-#         submit.click()
-#         time.sleep(5)
-#     except TimeoutError:
-#         print('超时连接')
-#
-#
-# def next_page():
-#     try:
-#         count = 1
-#
-#         while count <= 30:
-#             # soup = BeautifulSoup(html, 'lxml').select('#main > div.job-box > div.job-list > div.page > a.next')[0]
-#             # next_page_link = str(soup).find('next')  # 需要把返回的值转换为str，然后用find搜索，判断是否存在指定字符串.此方法无法判断最后一页，没想明白
-#             html = browser.page_source  #获取网页源代码
-#             soup = BeautifulSoup(html,'lxml').select('#main > div.job-box > div.job-list > ul > li')
-#             for items in soup:
-#                 href = 'http://www.zhipin.com' + items.a.attrs['href']  #转化为完整路径，urljoin只在scrapy中引用response才能自动转。
-#                 parse_html(href)
-#             next_link = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR,'#main > div.job-box > div.job-list > div.page > a.next')))
-#             print('正在翻页到第'+ str(count) +'页')
-#             next_link.click()
-#             time.sleep(5)
-#             count = count + 1
-#         else:
-#             print('已到最后一页')
-#     except:
-#         print('链接出现错误')
-#
-#
-# def parse_html(html):
-#     html_a = browser.page_source
-#     html_parse = BeautifulSoup(html_a,'lxml')
-#     data = {
-#         'work':html_parse.find('#main > div.job-banner > div > div > div.info-primary > div.name').text(),
-#         'company':html_parse.find('#main > div.job-banner > div > div > div.info-company > h3').text()
-#     }
-#     print(data)
-#
-#
-# def main():
-#     search()
-#     next_page()
-#
-#
-#
-# if __name__ == '__main__':
-#     main()
-
-
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # @Time    : 2017/6/5 下午9:13
@@ -173,5 +103,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-    # main > div.job-banner > div > div > div.info-company > p:nth-child(3)
